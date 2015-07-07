@@ -16,6 +16,13 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from links.views import StartPageView, YTLinksListAndCreateView, EditUserView, YTLinksDeleteView 
+
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', StartPageView.as_view(), name="start"),
+    url(r'^your-links/(?P<gen_hash>\w+)/$', YTLinksListAndCreateView.as_view(), name='list'),
+    url(r'^your-links/(?P<gen_hash>\w+)/edit_user/$', EditUserView.as_view(), name='edit_user'),
+    url(r'^your-links/(?P<gen_hash>\w+)/(?P<video_id>[\w\+%-_& ]+)/delete/$', YTLinksDeleteView.as_view(), name='delete'),
 ]

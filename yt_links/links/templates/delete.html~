@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<title>Delete link</title>
+</head>
+<body>
+<div class="container">
+<h1>Do you realy want to delete this link?</h1>
+<img src="{{ object.img }}" height="90" width="120">    <h3>{{ object.gen_name }}<h3>
+<form method="POST">
+   {% csrf_token %}
+   <button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>
+</form>
+</div>
+</body>
+</html>
+
