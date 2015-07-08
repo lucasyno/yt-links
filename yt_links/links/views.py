@@ -67,7 +67,7 @@ class YTLinksListAndCreateView(CreateView):
         	break
     	return d
     
-    def pl_to_eng(text)
+    def pl_to_eng(text):
     	trans = dict((ord(a), b) for a, b in zip(u'ąćęłńóśżźĄĆĘŁŃÓŚŻŹ', u'acelnoszzACELNOSZZ'))
     	return text.translate(trans)
    
@@ -76,7 +76,7 @@ class YTLinksListAndCreateView(CreateView):
 	try:
 	    form.instance.video_id = self.yt_parser(test_link)['videoId']
 	    text = self.yt_parser(test_link)['title']
-	    form.instance.gen_name = pl_t_eng(text)
+	    form.instance.gen_name = pl_to_eng(text)
 	    form.instance.img = self.yt_parser(test_link)['og:image']
 	except:
 	    messages.error(self.request, 'This is not a YouTube link, please correct it')
