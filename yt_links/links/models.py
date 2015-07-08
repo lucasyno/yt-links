@@ -11,7 +11,7 @@ class Owner(models.Model):
 
 
 class Link(models.Model):
-    link = models.URLField(unique=True)
+    link = models.URLField()
     gen_name = models.CharField(max_length=255)
     video_id = models.CharField(max_length=20)
     owner = models.ForeignKey(Owner, related_name='owner')
