@@ -12,7 +12,7 @@ class Owner(models.Model):
 
 class Link(models.Model):
     link = models.URLField(unique=True)
-    gen_name = models.CharField(max_length=100)
+    gen_name = models.CharField(max_length=255)
     video_id = models.CharField(max_length=20)
     owner = models.ForeignKey(Owner, related_name='owner')
     img = models.CharField(max_length=100)
