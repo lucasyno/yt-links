@@ -47,5 +47,7 @@ class OwnerEditForm(forms.ModelForm):
         for char in d['gen_hash']:
             if char not in allowed_letters:
                 raise forms.ValidationError('Please, type only ASCII letters')
+        if Owner.objects.filter(gen_hash=d['gen_hash']).exists():
+        	raise forms.ValidationError('This name already exists, please type other')
         return d
 
