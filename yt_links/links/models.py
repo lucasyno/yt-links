@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from django.core.urlresolvers import reverse_lazy
-from django.core.exceptions import ValidationError
-
 
 
 class Owner(models.Model):
@@ -16,8 +13,3 @@ class Link(models.Model):
     video_id = models.CharField(max_length=20)
     owner = models.ForeignKey(Owner, related_name='owner')
     img = models.CharField(max_length=100)
-
-
-
-
-
